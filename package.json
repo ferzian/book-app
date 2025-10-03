@@ -1,0 +1,12 @@
+{
+  "name": "book-app",
+  "private": true,
+  "scripts": {
+    "dev": "concurrently \"npm run dev --prefix book-app-backend\" \"npm run dev --prefix book-app-frontend\"",
+    "build": "npm run build --prefix book-app-frontend",
+    "start": "node book-app-backend/app.js"
+  },
+  "devDependencies": {
+    "concurrently": "^9.0.0"
+  }
+}
