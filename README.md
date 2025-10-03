@@ -16,36 +16,46 @@ Project ini dibuat untuk para pengguna yang ingin memesan atau booking lapangan 
 
 ## 📂 Project Structure
 
+```bash
 book-app/
 ├── book-app-backend/
-│ ├── src/
-│ ├── public/
-│ │ ├── config/
-│ │ ├── controllers/
-│ │ ├── middleware/
-│ │ ├── models/
-│ │ ├── routes/
-│ ├── app.js
-│ ├── package.json
-│ └── .env
+│   ├── src/
+│   │   ├── config/
+│   │   ├── controllers/
+│   │   ├── database/
+│   │   ├── middleware/
+│   │   ├── models/
+│   │   ├── routes/
+│   │   └── app.js
+│   ├── public/
+│   ├── package.json
+│   ├── .env
+│   └── .env.example
+
 ├── book-app-frontend/
-│ ├── src/
-│ ├── public/
-│ ├── package.json
-│ └── vite.config.js
+│   ├── src/
+│   ├── public/
+│   ├── package.json
+│   └── vite.config.js
+
 ├── package.json
 └── README.md
+```
 
 ---
 
 ## ⚙️ Installation, Configuration & Running
 
-```bash
-# Clone repository
-git clone https://github.com/username/book-app.git
-cd book-app
+1. Clone repository
 
-# Install dependencies
+```bash
+   git clone https://github.com/username/book-app.git
+    cd book-app
+```
+
+2. Install dependencies
+
+```bash
 cd book-app-backend && npm install
 cd ../book-app-frontend && npm install
 cd ..
@@ -53,13 +63,52 @@ npm install
 
 ```
 
-## 🛠️ Configuration
-Buat database bookapp_futsal di MySQL.
+3. Configuration
 
-Copy .env.example → .env di folder book-app-backend/ lalu isi dengan konfigurasi:
+    - Buat database "book-app" di MySQL.
+   
+    - Salin file ".env.example" ke ".env" di folder "book-app-backend/":
 
-DB_HOST=localhost
-DB_USER=root
-DB_PASS=yourpassword
-DB_NAME=bookapp_futsal
-JWT_SECRET=supersecret
+```bash
+cp book-app-backend/.env.example book-app-backend/.env
+
+```
+
+4. Running
+
+  **Development Mode**
+   
+   Menjalankan backend + frontend bersamaan:
+
+```bash
+npm run dev
+
+```
+
+  **Production Mode**
+
+```bash
+cd book-app-frontend
+npm run build
+
+cd ../book-app-backend
+npm start
+
+```
+
+---
+
+## ✨ Features
+
+- User Authentication (Register/Login dengan JWT)
+- CRUD Lapangan (Admin)
+- CRUD Booking (User & Admin)
+- Migration database dengan Sequelize
+- Dashboard User → lihat & buat booking
+- Dashboard Admin → kelola lapangan & approve booking
+
+---
+
+## 👨‍💻 Author
+
+Project ini dibuat untuk pembelajaran oleh Ferzian.
